@@ -1,0 +1,9 @@
+{% block body %}
+<form action="{{ url_for('edit_entry') }}" method=post class=add-entry>
+    <dl>
+        <dd><textarea name=title>{{element|safe}}</textarea>
+        <dd><textarea name=text rows=40 cols=80>{{text}}</textarea>
+        <dd><input type=submit value=Изменить>
+    </dl>
+</form>
+{% endblock %}

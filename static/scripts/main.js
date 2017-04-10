@@ -47,6 +47,8 @@ $(document).ready(function(){
         return 'Не выбрано'
       }
 
+      elem = chooseElement(x, y)
+      window.location.href = "/show?element=" + elem;
       console.log('x: ' + x + ', y: ' + y + ', elem' + chooseElement(x, y));
   });
 });

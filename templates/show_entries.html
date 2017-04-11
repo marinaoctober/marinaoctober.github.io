@@ -1,8 +1,6 @@
 <ul class=entries>
     {% for entry in entries %}
-    <h2> {{ entry.title }} </h2>
-    {{ entry.text }}
-    {% else %}
-    <em> No entries </em>
+      <h2> {{ entry.title }} </h2>
+      {{ entry.text }}
     {% endfor %}
 </ul>

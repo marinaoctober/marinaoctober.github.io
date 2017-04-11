@@ -44,14 +44,12 @@ chooseMultipleState = false;
 chosenElems = new Set()
 
 $(document).ready(function(){
-  $('.table').bind('click', function (ev) {
+  $('.table').click(function (ev) {
     const $div = $(ev.target);
-
     const offset = $div.offset();
     let x = ev.clientX - offset.left;
     let y = ev.clientY - offset.top;
     ratio = 3543 / 2657
-    console.log($(window).height())
     height = $(window).height()
     width = height * ratio
     x /= width
@@ -72,6 +70,7 @@ $(document).ready(function(){
     }
     console.log('x: ' + x + ', y: ' + y + ', elem' + chooseElement(x, y));
   });
+
   $('.button').click(function() {
     if (chooseMultipleState == false) {
       chooseMultipleState = true

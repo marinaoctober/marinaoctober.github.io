@@ -1,6 +1,7 @@
 <ul class=entries>
     {% for entry in entries %}
       <h2> {{ entry.title }} </h2>
-      {{ entry.text }}
+      <p style="white-space: pre-wrap;">
+      {{ entry.text }} <p/>
     {% endfor %}
 </ul>

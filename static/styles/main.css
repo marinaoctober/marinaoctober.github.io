@@ -1,11 +1,10 @@
 
-.table {
+#table {
     max-width: 100%;
     max-height: 100%;
-    border: 1px solid #FF0000
 }
 
-.tableContainer {
+#tableContainer {
   height: 100%;
   position: relative;
 }

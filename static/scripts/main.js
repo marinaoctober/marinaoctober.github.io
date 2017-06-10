@@ -1,5 +1,5 @@
-xsMain = [0.145, 0.227, 0.309, 0.390, 0.470, 0.549, 0.629, 0.710, 0.789, 0.870, 0.950]
-ysMain = [0.224, 0.284, 0.354, 0.414, 0.473, 0.532, 0.590, 0.652, 0.712, 0.769, 0.828]
+xsMain = [0.152, 0.233, 0.315, 0.396, 0.477, 0.559, 0.640, 0.721, 0.803, 0.884, 0.965]
+ysMain = [0.233, 0.293, 0.354, 0.412, 0.471, 0.530, 0.589, 0.648, 0.708, 0.767, 0.825]
 elementsMain = [
   ['Водород', '*', '*', '*', '*', '*', '*', 'Гелий', '*', '*'],
   ['Литий', 'Бериллий', 'Бор', 'Углерод', 'Азот', 'Кислород', 'Фтор', 'Неон', '*', '*'],
@@ -13,8 +13,8 @@ elementsMain = [
   ['Франций', 'Радий', 'Актиний', 'Резерфордий', 'Дубний', 'Сиборгий', 'Борий', 'Гасий', 'Мейтрений', 'Дармштадтий']
 ]
 
-xsDown = [0.149, 0.207, 0.264, 0.320, 0.389, 0.435, 0.493, 0.550, 0.607, 0.664, 0.721, 0.779, 0.835, 0.893, 0.950]
-ysDown = [0.873, 0.915, 0.957]
+xsDown = [0.152, 0.210, 0.269, 0.327, 0.385, 0.443, 0.501, 0.559, 0.615, 0.674, 0.732, 0.792, 0.849, 0.908, 0.965]
+ysDown = [0.886, 0.927, 0.969]
 elementsDown = [
   ['Церий', 'Празеодим', 'Неодим', 'Прометий', 'Самарий', 'Европий', 'Галидоний', 'Тербий', 'Диспрозий',
   'Гольмий', 'Эрбий', 'Тулий', 'Иттербий', 'Лютеций'],
@@ -47,8 +47,8 @@ chosenElems = new Set()
 elemToDiv = new Map()
 
 const drawShaders = function(xs, ys, elements) {
-  let table = $('.table')
-  let tableContainer = document.getElementsByClassName("tableContainer")[0]
+  let table = $('#table')
+  let tableContainer = document.getElementById("tableContainer")
   console.log(table.width(), table.height())
   for (let i = 1; i < xs.length; i++) {
     for (let j = 1; j < ys.length; j++) {
@@ -56,7 +56,7 @@ const drawShaders = function(xs, ys, elements) {
       elemToDiv.set(elements[j - 1][i - 1], newdiv)
       newdiv.className = shaderInactive
       newdiv.style.position = "absolute"
-      offset = table.offset()
+      offset = table.position()
       width = table.width()
       height = table.height()
       newdiv.style.top = offset.top + ys[j - 1] * height
@@ -74,7 +74,7 @@ const addShaders = function() {
 }
 
 $(document).ready(function(){
-  $('.table').click(function (ev) {
+  $('#table').click(function (ev) {
     const $div = $(ev.target);
     const offset = $div.offset();
     let x = ev.clientX - offset.left;
@@ -85,7 +85,7 @@ $(document).ready(function(){
     y /= height
 
     elem = chooseElement(x, y)
-    if (elem != "*") {
+    /*if (elem != "*") {
       if (chooseMultipleState) {
         if (chosenElems.has(elem)) {
           elemToDiv.get(elem).className = shaderInactive
@@ -98,7 +98,7 @@ $(document).ready(function(){
       } else {
         window.location.href = "/show?element=" + elem;
       }
-    }
+    }*/
     console.log('x: ' + x + ', y: ' + y + ', elem' + chooseElement(x, y));
   });
 

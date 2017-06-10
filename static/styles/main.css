@@ -11,12 +11,13 @@
 
 .shaderActive {
   pointer-events: none;
-  border: 1px solid #00FFFF
+  background-image: radial-gradient(
+      rgba(255,0,0,0), rgba(255,0,0,1)
+    );
 }
 
 .shaderInactive {
   pointer-events: none;
-  border: 1px solid #FF00FF
 }
 
 .button {

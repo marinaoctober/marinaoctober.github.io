@@ -85,7 +85,7 @@ $(document).ready(function(){
     y /= height
 
     elem = chooseElement(x, y)
-    /*if (elem != "*") {
+    if (elem != "*") {
       if (chooseMultipleState) {
         if (chosenElems.has(elem)) {
           elemToDiv.get(elem).className = shaderInactive
@@ -98,7 +98,7 @@ $(document).ready(function(){
       } else {
         window.location.href = "/show?element=" + elem;
       }
-    }*/
+    }
     console.log('x: ' + x + ', y: ' + y + ', elem' + chooseElement(x, y));
   });
 

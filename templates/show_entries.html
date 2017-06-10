@@ -1,3 +1,12 @@
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css')}}">
+  <script src="{{ url_for('static', filename='scripts/jquery-3.2.0.js')}}"></script>
+  <script src="{{ url_for('static', filename='scripts/showEntry.js')}}"></script>
+</head>
+<body>
+
+<button type='button' class='button' id='saveButton'>Сохранить</button>
 <ul class=entries>
     {% for entry in entries %}
       <h2> {{ entry.title }} </h2>
@@ -5,3 +14,6 @@
       {{ entry.text }} <p/>
     {% endfor %}
 </ul>
+
+</body>
+</html>

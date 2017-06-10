@@ -1,6 +1,6 @@
 import os
 import sqlite3
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, make_response
 
 app = Flask(__name__)
 
@@ -38,6 +38,22 @@ def show_entries():
     cur = db.execute('select title, text from entries where title in (' + elements + ')')
     entries = cur.fetchall()
     return render_template('show_entries.html', entries=entries)
+
+@app.route('/save')
+def save_entries():
+    elements = request.args.get('element')
+    elements = ','.join(["'" + s + "'" for s in elements.split(',')])
+    db = connect_db()
+    cur = db.execute('select title, text from entries where title in (' + elements + ')')
+    entries = cur.fetchall()
+
+    filetext = ''
+    for entry in entries:
+        filetext += entry[0] + '\n\n'
+        filetext += entry[1] + '\n\n' + '-'*20 + '\n\n'
+    response = make_response(filetext)
+    response.headers["Content-Disposition"] = "attachment; filename=elements.txt"
+    return response
 
 @app.route('/')
 def main():

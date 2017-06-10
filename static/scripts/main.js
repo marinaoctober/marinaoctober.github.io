@@ -102,15 +102,15 @@ $(document).ready(function(){
     console.log('x: ' + x + ', y: ' + y + ', elem' + chooseElement(x, y));
   });
 
-  $('.button').click(function() {
+  $('#chooseButton').click(function() {
     if (chooseMultipleState == false) {
       chooseMultipleState = true
       chosenElems = new Set()
-      $('.button').html('Открыть несколько')
+      $('#chooseButton').html('Открыть несколько')
     } else {
       window.location.href = "/show?element=" + Array.from(chosenElems).join()
       chooseMultipleState = false
-      $('.button').html('Выбрать несколько')
+      $('#chooseButton').html('Выбрать несколько')
     }
   })
 });
